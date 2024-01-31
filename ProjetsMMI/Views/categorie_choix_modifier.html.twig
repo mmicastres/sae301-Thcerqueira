@@ -1,0 +1,22 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" action="index.php" class="well" id="form-choix-categorie">
+        <fieldset>
+          <h3 class="text-center mb-5">Modifier une catégorie</h3>
+          <select name="id_categorie" class="form-control form-control-sm">
+            <option value="" disabled selected>Choisissez la catégorie</option>
+            {% for categorie in categorieList %}
+              <option value="{{ categorie.id_categorie }}">{{ categorie.categorie }}</option>
+            {% endfor %}
+          </select>
+          <input type="submit" name="saisie_modifcategorie" value="Valider" class="btn btn-primary btn-dark w-100 mt-5" />
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

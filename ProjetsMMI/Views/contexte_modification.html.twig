@@ -1,0 +1,29 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" action="index.php" class="well" id="form-modification-contexte">
+        <fieldset>
+          <h3 class="text-center mb-4">Modifier une contexte</h3>
+          <div class="form-group mb-4">
+            <label for="semestre">Nouveau semestre</label>
+            <input type="text" id="semestre" class="form-control" name="semestre" required placeholder="Entrez le nouveau semestre" value="{{cont.semestre}}"/>
+          </div>
+          <div class="form-group mb-4">
+            <label for="matiere">Nouvelle matiere</label>
+            <input type="text" id="matiere" class="form-control" name="matiere" required placeholder="Entrez la nouvelle matiere" value="{{cont.matiere}}"/>
+          </div>
+          <div class="form-group mb-4">
+            <label for="identifiant">Nouveau identifiant</label>
+            <input type="text" id="identifiant" class="form-control" name="identifiant" required placeholder="Entrez le nouveau identifiant" value="{{cont.identifiant}}"/>
+          </div>
+          <input type="hidden" id="id_contexte" name="id_contexte" value="{{ cont.id_contexte}}"/> 
+          <input type="submit" class="btn btn-primary btn-dark w-100 mt-2" name="valider_modifcontexte" value="Modifier le contexte"/>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

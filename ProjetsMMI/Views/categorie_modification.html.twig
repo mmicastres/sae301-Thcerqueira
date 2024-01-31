@@ -1,0 +1,21 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" action="index.php" class="well" id="form-modification-categorie">
+        <fieldset>
+          <h3 class="text-center mb-4">Modifier une catégorie</h3>
+          <div class="form-group mb-4">
+            <label for="categorie">Nouveau titre</label>
+            <input type="text" id="categorie" class="form-control" name="categorie" required placeholder="Entrez le nouveau titre"/>
+          </div>
+          <input type="hidden" id="id_categorie" name="id_categorie" value="{{ cat.id_categorie }}"/> 
+          <input type="submit" class="btn btn-primary btn-dark w-100 mt-2" name="valider_modifcategorie" value="Modifier la catégorie"/>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

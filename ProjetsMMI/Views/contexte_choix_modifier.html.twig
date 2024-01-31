@@ -1,0 +1,22 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" action="index.php" class="well" id="form-choix-contexte">
+        <fieldset>
+          <h3 class="text-center mb-5">Modifier une contexte</h3>
+          <select name="id_contexte" class="form-control form-control-sm">
+            <option value="" disabled selected>Choisissez le contexte</option>
+            {% for contexte in contexteList %}
+              <option value="{{ contexte.id_contexte }}">{{ contexte.identifiant }}</option>
+            {% endfor %}
+          </select>
+          <input type="submit" name="saisie_modifcontexte" value="Valider" class="btn btn-primary btn-dark w-100 mt-5" />
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

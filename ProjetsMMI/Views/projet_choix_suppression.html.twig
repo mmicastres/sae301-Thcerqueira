@@ -1,0 +1,22 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" action="index.php" class="well">
+        <fieldset>
+            <h3 class="text-center mb-5">Supprimer un de mes projets</h3>
+            <select name="id_projet" class="form-control form-control-sm">
+            <option value="" disabled selected>Choisissez le projet</option>
+            {% for pro in pros %}
+            <option value="{{pro.idProjet}}">{{pro.titre}}</option>
+            {% endfor %}
+            </select>
+            <input type="submit"  name="valider_supp" value="valider" class="btn btn-primary btn-dark w-100 mt-5" />
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

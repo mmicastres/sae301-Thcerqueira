@@ -1,0 +1,42 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+.container { 
+	min-height:500px;
+}
+
+.full-width-image {
+	width: 100%;
+	height: 60vh;
+	object-fit: cover;
+}
+
+
+.well {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	margin-top: 40px;
+}
+
+legend {
+	font-size: 1.2rem;
+}
+
+.card {
+    border-radius: 12px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.card img{
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	width: 100%; 
+	height: 100%; 
+	object-fit:fill
+}

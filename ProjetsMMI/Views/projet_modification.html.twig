@@ -1,0 +1,110 @@
+{% extends "index.html.twig" %}
+
+
+{% block section %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" action="index.php" class="well" id="form-ajout" enctype="multipart/form-data">
+        <fieldset>
+          <h3 class="text-center mb-4">Modifier un de mes projets</h3>
+          <div class="form-group mb-4">
+            <label for="titre">Titre</label>
+            <input type="text" id="nom" class="form-control" name="titre" required placeholder="Entrez le titre du projet" value="{{pro.titre}}" />
+            <p class="errorinput" id="titreerror"></p>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="description">Description</label>
+            <Textarea type="text" id="description" class="form-control" name="description" required placeholder="Entrez une description du projet">{{pro.description}}</Textarea>
+            <p class="errorinput" id="descriptionerror"></p>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="image">Image</label>
+            <input type="file" id="image" class="form-control" name="image" accept="image/*" />
+            <p class="errorinput" id="imageerror"></p>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="lien_demo">Lien démonstration</label>
+            <input type="lien_demo" id="lien_demo" class="form-control" name="lien_demo" required value="{{pro.lien_demo}}" />
+            <p class="errorinput" id="lien_demoerror"></p>
+          </div>
+          <div class="form-group mb-4">
+            <label for="lien_source">Lien source</label>
+            <input type="lien_source" id="lien_source" class="form-control" name="lien_source" required value="{{pro.lien_source}}" />
+            <p class="errorinput" id="lien_sourceerror"></p>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="matiere">Matière</label>
+            <select name="id_contexte" type="id_contexte" id="id_contexte" class="form-select form-select mb-4">
+              <option value="{{pro.id_contexte}}" selected>{{pro.identifiant}}&emsp;{{pro.matiere}}</option>
+              {% for contexte in contexteList %}
+                <option value={{contexte.id_contexteList}}>{{contexte.identifiantList}}&emsp;{{contexte.matiereList}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="matiere">Catégorie</label>
+            <select name="id_categorie" type="id_categorie" id="id_categorie" class="form-select form-select mb-4">
+              <option value="{{pro.id_categorie}}" selected>{{pro.categorie}}</option>
+              {% for categorie in categorieList %}
+                <option value={{categorie.id_categorieList}}>{{categorie.categorie}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="contributeurs">Contributeurs</label>
+            <select class="contributeur form-select mb-4 form-multiple" name="contributeurs[]" multiple="multiple">
+                <option value="" disabled>Choisissez le(s) contributeur(s)</option>
+                {% for contributeur in contributeurList %}
+                  {% if contributeur.id_utilisateur != id_utilisateur %}
+                    {% if contributeur.id_utilisateur in selectedContributeur %}
+                      <option value="{{ contributeur.id_utilisateur }}" selected>{{ contributeur.nom}}&nbsp;{{ contributeur.prenom}}</option>
+                    {% else %}
+                      <option value="{{ contributeur.id_utilisateur }}">{{ contributeur.nom}}&nbsp;{{ contributeur.prenom}}</option>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+            </select>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="tags">Tag</label>
+            <select class="tag form-select mb-4 form-multiple" name="tags[]" multiple="multiple">
+              <option value="" disabled>Choisissez le(s) tag(s)</option>
+              {% for tag in tagList %}
+                  {% if tag.id_tag in selectedTag %}
+                      <option value="{{ tag.id_tag }}" selected>{{ tag.tag}}</option>
+                  {% else %}
+                      <option value="{{ tag.id_tag }}">{{ tag.tag}}</option>
+                  {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          
+
+
+          
+        <input  type="hidden" id="id_utilisateur" name="id_utilisateur" value="{{ id_utilisateur }}"/> 
+        <input  type="hidden" id="id_projet" name="id_projet" value="{{ pro.idProjet }}"/> 
+
+          <input type="submit" class="btn btn-primary btn-dark w-100 mt-2" name="valider_modif" value="Modifier le projet"/>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.contributeur').select2();
+    $('.tag').select2();
+});
+</script>
+
+{% endblock %}

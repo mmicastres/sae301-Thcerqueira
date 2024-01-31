@@ -1,0 +1,39 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+<class="container">
+    <h3 class="text-center mt-4 mb-4">Information personnelles</h3>
+    {% for uti in utis %}
+        <div class="row mt-5">
+            <div class="col">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Nom</th>                                          
+                            <td>{{ uti.nom }}</td>
+                        </tr>
+                        <tr>
+                            <th>Prénom</th>                                          
+                            <td>{{ uti.prenom }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>                                          
+                            <td>{{ uti.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Identifiant IUT</th>                                          
+                            <td>{{ uti.identifiant_iut }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endfor %}
+    <h4 class='mb-4 mt-4 text-center'>Mes projets</h4>
+        {% for pro in pros %}
+        <div class="text-center">
+            <a href="?action=details&id={{ pro.idProjet }}" class="text-dark">{{pro.titre}}</a>
+        </div>
+        {% endfor %}
+</div>
+{% endblock %}

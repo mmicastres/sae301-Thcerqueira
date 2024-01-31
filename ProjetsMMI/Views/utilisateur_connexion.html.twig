@@ -1,0 +1,29 @@
+
+{% extends "index.html.twig" %}
+
+{% block section %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" action="index.php" class="well">
+        <fieldset>
+          <h3 class="text-center mb-4">Connectez-vous</h3>
+          <div class="form-group mb-4">
+            <label for="login">Email</label>
+            <input type="email" id="login" class="form-control" name="login" required placeholder="Entrez votre adresse email" />
+          </div>
+          <div class="form-group mb-4">
+            <label for="passwd">Mot de passe</label>
+            <input type="password" id="passwd" class="form-control" name="passwd" required placeholder="Entrez votre mot de passe" />
+          </div>
+          <input type="submit" name="connexion" value="Connexion" class="btn btn-dark w-100 mt-2" />
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

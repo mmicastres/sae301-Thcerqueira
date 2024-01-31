@@ -1,0 +1,47 @@
+
+{% extends "index.html.twig" %}
+
+
+{% block section %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" action="index.php" class="well" id="form-inscription">
+        <fieldset>
+          <h3 class="text-center mb-4">Inscription</h3>
+          <div class="form-group mb-4">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" class="form-control" name="nom" required placeholder="Entrez votre nom" />
+            <p class="errorinput" id="nomerror"></p>
+          </div>
+          <div class="form-group mb-4">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" class="form-control" name="prenom" required placeholder="Entrez votre prénom" />
+            <p class="errorinput" id="prenomerror"></p>
+          </div>
+          <div class="form-group mb-4">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" name="email" required placeholder="Entrez votre adresse email" />
+            <p class="errorinput" id="emailerror"></p>
+          </div>
+          <div class="form-group mb-4">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" class="form-control" name="password" required placeholder="Entrez un mot de passe" />
+            <p class="errorinput" id="passworderror"></p>
+          </div>
+          <div class="form-group mb-4">
+            <label for="identifiant_iut">Identifiant IUT</label>
+            <input type="text" id="identifiant_iut" class="form-control" name="identifiant_iut" required placeholder="ex : djs2313a" />
+            <p class="errorinput" id="identifiant_iuterror"></p>
+          </div>
+          <input type="hidden" id="admin" name="admin" value="0" />
+          <input type="submit" name="inscription" value="Inscription" class="btn btn-dark w-100 mt-2" />
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="FormValidation/ValidationInscription.js"></script>
+
+{% endblock %}
